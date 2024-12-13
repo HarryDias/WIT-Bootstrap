@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+    .navbar {
+        background-color: #ffffff;
+    }
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: #000000;
+    }
+    .navbar-brand img {
+        max-width: 100%;
+        height: auto;
+        max-height: 50px; /* Ensures the logo fits within standard dimensions */
+        margin-right: 10px;
+    }
+    .navbar-nav .nav-link {
+        color: #6c63ff;
+        font-weight: bold;
+    }
+    .navbar-nav .nav-link:hover {
+        color: #000000;
+    }
+    .contact-btn {
+        background-color: transparent;
+        color: #6c63ff;
+        border: 1px solid #6c63ff;
+        font-weight: bold;
+    }
+    .contact-btn:hover {
+        background-color: #6c63ff;
+        color: #ffffff;
+    }
+    .intro-section {
+        padding: 50px 0;
+        text-align: left;
+    }
+    .intro-text h5 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+    .intro-text h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .intro-text p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .intro-text .btn-primary {
+        background-color: #6c63ff;
+        border-color: #6c63ff;
+    }
+    .intro-img {
+        text-align: center;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        border-radius: 10px;
+    }
+    .intro-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px; /* Ensures the image fits within the placeholder */
+    }
+    .expertise-section {
+        padding: 50px 0;
+        text-align: left;
+    }
+    .card {
+        margin: 20px 0;
+        border: none;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .card .card-icon {
+        font-size: 2rem;
+        color: #6c63ff;
+        margin-bottom: 15px;
+    }
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .card-text {
+        font-size: 1rem;
+        color: #6c757d;
+    }
+    .about-section {
+        display: flex;
+        align-items: center;
+        padding: 50px 0;
+    }
+    .about-img {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0; /* Remove padding for the image */
+    }
+    .about-img img {
+        max-width: auto;
+        height: 100%;
+    }
+    .about-content {
+        padding: 20px;
+    }
+    .about-title {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .portfolio-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Allow the content to wrap if necessary */
+        margin-bottom: 40px;
+        width: 100%; /* Ensure it doesn't exceed the container width */
+    }
+    .btn-dribbble {
+        background-color: #ea4c89;
+        color: #fff;
+    }
+    .btn-dribbble {
+        background-color: transparent;
+        color: #ea4c89;
+        position: relative;
+    }
+
+    .btn-dribbble:hover, .btn-dribbble:focus {
+        background-color: #ea4c89;
+        color: #fff;
+    }
+
+    .btn-dribbble .fa-arrow-right {
+        margin-left: 8px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .btn-dribbble:hover .fa-arrow-right, .btn-dribbble:focus .fa-arrow-right {
+        transform: translateX(5px);
+    }
+    .testimonial {
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: left;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #006B6A; /* Updated border color */
+    }
+    .testimonial .stars {
+        color: #006B6A; /* Updated star color */
+        margin-bottom: 10px;
+    }
+    .testimonial p {
+        text-align: left;
+    }
+    .testimonial .profile-icon {
+        font-size: 3rem;
+        color: #6c63ff;
+        margin-bottom: 10px;
+    }
+    .testimonial h5 {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .section-title {
+        text-align: left;
+        margin: 40px 0;
+    }
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .form-container h1, .form-container h5 {
+        text-align: center;
+    }
+    .btn-primary {
+        background-color: #6c63ff;
+        border-color: #6c63ff;
+    }
+    .navbar-nav {
+        margin-left: auto;
+    }
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-top: 1px solid #ccc;
+    }
+    .navbar-brand i, .footer i {
+        color: #6c63ff;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/Logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-me">About me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+            </ul>
+                <button class="btn contact-btn">Contact Me</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container intro-section" id="home">
+        <div class="row">
+            <div class="col-md-6 intro-text">
+                <h5>Hey, I am John</h5>
+                <h1>I create <span style="color: #6c63ff;">product design</span> and brand experience</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                <button class="btn btn-primary">Get In Touch</button>
+            </div>
+            <div class="col-md-6 intro-img">
+                <img src="images/Group 11 1.png" alt="John's Image">
+            </div>
+        </div>
+    </div>
+
+    <div class="container expertise-section">
+        <h5>My Expertise</h5>
+        <h1>What I Do</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-compass card-icon"></i>
+                        <h5 class="card-title">Strategy & Direction</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-pencil-ruler card-icon"></i>
+                        <h5 class="card-title">Branding & Logo</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-feather-alt card-icon"></i>
+                        <h5 class="card-title">UI & UX Design</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-code card-icon"></i>
+                        <h5 class="card-title">Webflow Development</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container about-section" id="about-me">
+        <div class="row">
+            <div class="col-md-6 about-img">
+                <img src="images/About Me.png">
+            </div>
+            <div class="col-md-6 about-content">
+                <div class="about-title">
+                    <h1>About Me</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.</p><p>Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus r.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="portfolio">
+    <div class="portfolio-title">
+        <div>
+            <h5>My Portfolio</h5>
+            <h1>Projects</h1>
+        </div>
+        <button class="btn btn-dribbble">
+            <i class="fab fa-dribbble"></i> Visit My Dribbble
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/Image-1.png" alt="Ahuse">
+                <div class="card-body">
+                    <h5 class="card-title">Ahuse</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-dribbble">
+                        View In Dribbble <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/Image-2.png" alt="App Dashboard">
+                <div class="card-body">
+                    <h5 class="card-title">App Dashboard</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-dribbble">
+                        View In Dribbble <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/Image-3.png" alt="Easy Rent">
+                <div class="card-body">
+                    <h5 class="card-title">Easy Rent</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-dribbble">
+                        View In Dribbble <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="testimonials">
+    <div class="section-title">
+        <h5>Clients Feedback</h5>
+        <h1>Customer testimonials</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="testimonial border-primary">
+                <div class="stars text-primary">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra."</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-circle profile-icon"></i>
+                    <div class="ml-3 text-center">
+                        <h5 class="mb-0">Dianne Russell</h5>
+                        <small>Starbucks</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial border-primary">
+                <div class="stars text-primary">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra."</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-circle profile-icon"></i>
+                    <div class="ml-3 text-center">
+                        <h5 class="mb-0">Kristin Watson</h5>
+                        <small>Louis Vuitton</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial border-primary">
+                <div class="stars text-primary">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra."</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-circle profile-icon"></i>
+                    <div class="ml-3 text-center">
+                        <h5 class="mb-0">Kathryn Murphy</h5>
+                        <small>McDonald's</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container form-container" id="contact">
+        <h5>Get in Touch</h5>
+        <h1>Contact me</h1>
+        <p class="text-center">Learn how to deliver the exact services that you need quickly and efficiently.</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Firstname">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Lastname">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone number</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone number">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for contact</label>
+                <select id="reason" class="form-control">
+                    <option selected>Select one...</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Type your message..."></textarea>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="terms">
+                <label class="form-check-label" for="terms">Accept terms</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+                <img src="images/Logo.png" alt="Logo">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-me">About me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-instagram"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
